@@ -5,9 +5,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vuqbu"]
 
-[node name="Boid" type="Node2D" groups=["boids"]]
+[node name="Boid" type="Node2D"]
 script = ExtResource("1_j4cpu")
-avoid_collisions = true
 metadata/debug = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

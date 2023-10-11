@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ca28x6a1mdpww"]
 
-[ext_resource type="Script" path="res://scripts/World.gd" id="1_ilxsd"]
-[ext_resource type="Script" path="res://scripts/Swarm.gd" id="2_2tjma"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_m6y6c"]
+[ext_resource type="Script" path="res://scripts/swarm.gd" id="2_o8uqu"]
 [ext_resource type="PackedScene" uid="uid://bsvk2jh4oretc" path="res://scenes/boid.tscn" id="3_cfx4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yox3s"]
@@ -15,7 +15,7 @@ size = Vector2(1, 1)
 zoom = Vector2(0.6, 0.6)
 
 [node name="World" type="Node2D" parent="."]
-script = ExtResource("1_ilxsd")
+script = ExtResource("1_m6y6c")
 width = 1000
 height = 1000
 
@@ -32,13 +32,14 @@ scale = Vector2(1040, 1040)
 texture = SubResource("CanvasTexture_1x5n4")
 
 [node name="Swarm" type="Node2D" parent="World"]
-script = ExtResource("2_2tjma")
+script = ExtResource("2_o8uqu")
 width = 900.0
 height = 900.0
+avoid_collisions = true
+metadata/debug = false
 
 [node name="Debugger" parent="World" instance=ExtResource("3_cfx4g")]
 avoid_collisions = true
-metadata/debug = true
 
 [node name="Sprite2D" parent="World/Debugger" index="0"]
 modulate = Color(1, 0, 0, 1)
