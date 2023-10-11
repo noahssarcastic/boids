@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsvk2jh4oretc"]
+
+[ext_resource type="Script" path="res://scripts/boid.gd" id="1_j4cpu"]
+[ext_resource type="Texture2D" uid="uid://oyg4uqipq2ud" path="res://boid.png" id="2_pjtbg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuqbu"]
+size = Vector2(10, 10)
+
+[node name="Boid" type="Node2D" groups=["boids"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_j4cpu")
+metadata/debug = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.0125313, 0.0144509)
+texture = ExtResource("2_pjtbg")
+flip_v = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vuqbu")
