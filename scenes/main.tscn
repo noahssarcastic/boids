@@ -37,6 +37,7 @@ width = 900.0
 height = 900.0
 
 [node name="Debugger" parent="World" instance=ExtResource("3_cfx4g")]
+avoid_collisions = true
 metadata/debug = true
 
 [node name="Sprite2D" parent="World/Debugger" index="0"]
