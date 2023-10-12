@@ -5,21 +5,23 @@ extends Node2D
 
 @export_group("Swarm Settings")
 ## Number of [Boid]s in the swarm.
-@export var size = 100
+@export var size: int = 100
 ## Width in pixels of the swarm spawn area.
-@export var width = 100.0
+@export var width: float = 100.0
 ## Height in piexls of the swarm spawn area.
-@export var height = 100.0
+@export var height: float = 100.0
 
 @export_group("Boid Settings")
 ## Speed modifier of an individual boid.
 @export var speed: float = 100.0
 ## Radius of a boid's sphere of vision.
 @export var neighborhood_radius: float = 100.0
+# The boid's color.
+@export var color: Color = Color.BLUE
 ## Enable collision-avoidance behavior.
 @export var avoid_collisions: bool = false
 
-var _rng = RandomNumberGenerator.new()
+var _rng := RandomNumberGenerator.new()
 
 
 func _ready():
@@ -33,5 +35,6 @@ func _ready():
 		instance.speed = speed
 		instance.neighborhood_radius = neighborhood_radius
 		instance.avoid_collisions = avoid_collisions
+		instance.color = color
 		instance.set_meta("debug", get_meta("debug"))
 		add_child(instance)

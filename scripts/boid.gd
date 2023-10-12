@@ -11,6 +11,8 @@ extends Node2D
 @export var speed: float = 100.0
 ## Radius of a boid's sphere of vision.
 @export var neighborhood_radius: float = 100.0
+# The boid's color.
+@export var color: Color = Color.BLUE
 ## Enable collision-avoidance behavior.
 @export var avoid_collisions: bool = false
 
@@ -22,8 +24,12 @@ var _neighborhood: Area2D
 # Array of other boids within this boid's sphere of vision.
 var _visible_boids: Array[Boid] = []
 
+@onready var _sprite := $Sprite2D
+
 
 func _ready():
+	_sprite.modulate = color
+	
 	_neighborhood = Area2D.new()
 	_neighborhood.set_collision_layer(0)
 	_neighborhood.set_collision_mask(0)

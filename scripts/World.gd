@@ -4,31 +4,31 @@ extends Node2D
 ## Create a bounded world which wraps along the edges.
 
 
-## How much larger should the sprite be on each edge.
+## How much larger in pixels should the sprite be on each edge.
 ## Used to reset [Boid] position before 
 ## leaving the bounds of the world's sprite.
-const EDGE_PADDING = 40
+const EDGE_PADDING: float = 40.0
 
 ## The width in pixels of the world.
-@export var width = 100.0:
+@export var width: float = 100.0:
 	set(new_width):
 		width = new_width
 		_update_size()
 ## The height in pixels of the world.
-@export var height = 100.0:
+@export var height: float = 100.0:
 	set(new_height):
 		height = new_height
 		_update_size()
 	
-@onready var _collider = $Area2D
-@onready var _collision_shape = $Area2D/CollisionShape2D
-@onready var _sprite = $Sprite2D
+@onready var _collider := $Area2D
+@onready var _collision_shape := $Area2D/CollisionShape2D
+@onready var _sprite := $Sprite2D
 
 
 func _ready():
 	_update_size()
 	_collider.area_exited.connect(_on_world_area_exited)
-	
+
 
 func _on_world_area_exited(area: Area2D) -> void:
 	var parent: Node = area.get_parent()
