@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://clrq13uiaxwjf"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_njwfb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yox3s"]
+size = Vector2(1, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1x5n4"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_njwfb")
+width = 2000.0
+height = 1500.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2000, 1500)
+shape = SubResource("RectangleShape2D_yox3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2040, 1540)
+texture = SubResource("CanvasTexture_1x5n4")
